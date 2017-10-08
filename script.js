@@ -54,6 +54,21 @@ var stateWinner = theStates[state].winner;
     } else {
         theStates[state].rgbColor = [11,32,57];
     }
+
+  stateName.innerText = theStates[state].nameFull;
+abbrev.innerText = "(" +theStates[state].nameAbbrev + ")";
+
+candidate1Name.innerText = flo.name;
+candidate2Name.innerText = jane.name;
+
+candidate1Results.innerText = flo.electionResults[state];
+candidate2Results.innerText = jane.electionResults[state];
+
+if (theStates[state].winner === null){
+    winnersName.innerText = "DRAW";
+} else {
+    winnersName.innerText = theStates[state].winner.name;
+}
 }
 
 flo.tallyUpTotalVotes();
@@ -76,21 +91,6 @@ if (flo.totalVotes > jane.totalVotes){
 
 console.log("AND THE WINNER IS..." + winner + "!!!");
 
-stateName.innerText = theStates[state].nameFull;
-abbrev.innerText = "(" +theStates[state].nameAbbrev + ")";
-
-candidate1Name.innerText = flo.name;
-candidate2Name.innerText = jane.name;
-
-candidate1Results.innerText = flo.electionResults[state];
-candidate2Results.innerText = jane.electionResults[state];
-
-if (theStates[state].winner === null){
-    winnersName.innerText = "DRAW";
-} else {
-    winnersName.innerText = theStates[state].winner.name;
-}
-
 var countryInfoTable = document.getElementById('countryResults');
 var row = countryInfoTable.children[0].children[0];
 
@@ -110,3 +110,4 @@ var candidate2Name = body.children[1].children[0];
 var candidate1Results = body.children[0].children[1];
 var candidate2Results = body.children[1].children[1];
 var winnersName = body.children[2].children[1];
+
